@@ -1,0 +1,23 @@
+name: Deploy Seguro com Cofre Digital
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: Simular Deploy Seguro com Secrets
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+        run: |
+          echo "Processo de deploy iniciado..."
+          echo "A senha do banco de dados foi carregada com segurança no ambiente!"
+          echo "Nota: O GitHub Actions automaticamente esconde secrets reais."
