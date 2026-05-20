@@ -22,6 +22,6 @@ jobs:
         run: |
           pip install -r app/requirements.txt
 
-      - name: Executar aplicação
+      - name: Testar importação do Flask
         run: |
-          python app/app.py
+          python -c "from app.app import app; print('Flask funcionando!')"
